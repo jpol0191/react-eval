@@ -15,7 +15,7 @@ class PlayerList extends Component  {
   }
 
   sortPlayers() {
-    return this.PaymentResponse.players.sort((a,b) => { return b.pts - a.pts })
+    return this.props.players.sort((a,b) => { return b.pts - a.pts })
   }
 
   render(){
