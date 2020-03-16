@@ -28,7 +28,7 @@ class PlayerList extends Component  {
             <th>PTS</th>
             <th>AST</th>
           </tr>
-          {sortPlayers().map(player => (
+          {this.sortPlayers().map(player => (
             <PlayerRow player={player} />
           ))}
         </table>
