@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PlayerRow from './PlayerRow'
 const jsonUrl = 'http://my-json-server.typicode.com/nortenzio/leagueplayerstats/players';
 
 
-const PlayerList = () => {
-  const componentDidMount = () => {
+class PlayerList extends Component  {
+  constructor(){
+    super();
+    this.state.players = [];
+  }
+  componentDidMount() {
     fetch(jsonUrl)
       .then(res => res.json())
       .then(json => this.setState({ players: json }))
   }
-  const sortPlayers = () =>{
+
+  sortPlayers() {
     return this.PaymentResponse.players.sort((a,b) => { return b.pts - a.pts })
   }
-  return (
-    <div>
-      <table>
-        {sortPlayers().map(player => (
-          <td>
+
+  render(){
+    return (
+      <div>
+        <table>
+          <tr>
+            <th> </th>
+            <th>Name</th>
+            <th>PTS</th>
+            <th>AST</th>
+          </tr>
+          {sortPlayers().map(player => (
             <PlayerRow player={player} />
-          </td>
-        ))}
-      </table>
-    </div>
-  )
+          ))}
+        </table>
+      </div>
+    )
+  }
 }
 
 
