@@ -23,16 +23,20 @@ class PlayerList extends Component  {
     return (
       <div>
         <table className="player-list">
-          <tr>
-            <th> </th>
-            <th>Name</th>
-            <th>PTS</th>
-            <th>REB</th>
-            <th>AST</th>
-          </tr>
-          {this.sortPlayers().map(player => (
-            <PlayerRow player={player} addFavorite={this.props.addFavorite}/>
-          ))}
+          <thead>
+            <tr>
+              <th> </th>
+              <th>Name</th>
+              <th>PTS</th>
+              <th>REB</th>
+              <th>AST</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.sortPlayers().map(player => (
+              <PlayerRow player={player} addFavorite={this.props.addFavorite}/>
+            ))}
+          </tbody>
         </table>
       </div>
     )

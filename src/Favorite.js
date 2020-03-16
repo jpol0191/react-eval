@@ -3,7 +3,7 @@ import React from 'react';
 
 const Favorite = (props) => {
   return (
-    <div>
+    <div className="favorite">
       <div class="headshot"> <img src={props.player.img}/></div>
       <div class="stats-card">
         <h3>{props.player.name}</h3>

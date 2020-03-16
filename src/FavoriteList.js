@@ -13,7 +13,7 @@ const FavoriteList = (props) => {
     }
   }
   return (
-    <div>
+    <div className="favorites-list">
       {handleRender()}
     </div>
   )
