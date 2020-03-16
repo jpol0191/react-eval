@@ -3,7 +3,7 @@
 ## Set Up
 
 - Clone this repository
-- run `npm init` to install dependencies
+- run `npm install` to install dependencies
 - run `npm run start` to start the dev server
 
 ## Instructions

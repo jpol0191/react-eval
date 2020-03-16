@@ -6,8 +6,9 @@ const jsonUrl = 'http://my-json-server.typicode.com/nortenzio/leagueplayerstats/
 class PlayerList extends Component  {
   constructor(){
     super();
-    this.state.players = [];
+    this.state = { players: [] }
   }
+
   componentDidMount() {
     fetch(jsonUrl)
       .then(res => res.json())
@@ -15,21 +16,22 @@ class PlayerList extends Component  {
   }
 
   sortPlayers() {
-    return this.props.players.sort((a,b) => { return b.pts - a.pts })
+    return this.state.players.sort((a,b) => { return b.pts - a.pts })
   }
 
   render(){
     return (
       <div>
-        <table>
+        <table className="player-list">
           <tr>
             <th> </th>
             <th>Name</th>
             <th>PTS</th>
+            <th>REB</th>
             <th>AST</th>
           </tr>
           {this.sortPlayers().map(player => (
-            <PlayerRow player={player} />
+            <PlayerRow player={player} addFavorite={this.props.addFavorite}/>
           ))}
         </table>
       </div>

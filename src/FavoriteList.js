@@ -1,16 +1,15 @@
 import React from 'react';
 import Favorite from './Favorite';
 
-const FavoriteList = () => {
-  const handleRender = () =>{
-    if ( this.props.favorites.length == 0 ){
+const FavoriteList = (props) => {
+  const handleRender = () => {
+    if ( props.favorites.length === 0 ){
       return (<h2>No Favorites Yet</h2>)
     }else{
-      return (
-        this.props.favorites.map( player => {
-          <Favorite player={player}/>
-        })
-      )
+      const players = props.favorites.map( player => {
+        return <Favorite player={player} removeFavorite={props.removeFavorite}/>
+      })
+      return players;
     }
   }
   return (

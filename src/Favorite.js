@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const Favorite = () => {
+const Favorite = (props) => {
   return (
     <div>
-      <div class="headshot"> <img src={this.props.player.img }/></div>
+      <div class="headshot"> <img src={props.player.img}/></div>
       <div class="stats-card">
-        <h3>{this.props.player.name}</h3>
+        <h3>{props.player.name}</h3>
         <table>
           <tr>
             <td>PTS</td>
@@ -14,11 +14,12 @@ const Favorite = () => {
             <td>AST</td>
           </tr>
           <tr>
-            <td>{this.props.player.pts}</td>
-            <td>{this.props.player.reb}</td>
-            <td>{this.props.player.ast}</td>
+            <td>{props.player.pts}</td>
+            <td>{props.player.reb}</td>
+            <td>{props.player.ast}</td>
           </tr>
         </table>
+        <div class="button" onClick={ () => props.removeFavorite(props.player) }>Remove</div>
       </div>
     </div>
   )
